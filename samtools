@@ -1,0 +1,43 @@
+#To get the usage(manual) for the samtools view tool, run the following command:
+samtools view
+
+#Before using samtools view, you might have to install an updated version of samtools first by using the command:
+conda install -c bioconda samtools=1.13
+
+#Newer versions are also available on github
+#In the manual, you find the option, -c, which can tell you the number of records (alignments) in our sample data files. Usage:
+#samtools view [options] || [region...]
+#From this usage, we can see the command syntax is:
+#samtools view [options] <filename>
+
+#open text editor
+nano samtools.sh
+
+#In Bash script, start with the shebang
+
+#!/usr/bin/env bash
+
+#enable debugging with the set command to track errors
+set -eu
+
+#Use a for loop to return the number of records (alignments)
+for file in *.bam
+do
+
+#check if file is empty using the -s option
+if [[ -s "${file}" ]]
+then
+
+#useful message to show process
+echo "Processing: ${file}"
+
+#count number of alignments in said file using samtools view
+alignments=$(samtools view -c ${file})
+
+#print file name (BTW, this is optional)
+echo ${file}
+
+#print result of samtools view count
+echo ${alignments}
+fi
+done
