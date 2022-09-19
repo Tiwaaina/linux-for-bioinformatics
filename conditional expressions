@@ -1,0 +1,41 @@
+#Terminal:
+
+nano temperature.sh
+
+#Script:
+
+#!/usr/bin/env bash
+
+echo "Please enter your temperature!"
+
+read temperature
+
+min_tem=10
+
+max_tem=30
+
+if [[ ${temperature} -gt ${max_tem} ]]
+
+then
+
+echo "Too hot!"
+
+elif [[ ${temperature} -lt ${min_tem} ]]
+
+then
+
+echo "Too cold!"
+
+elif [[ ${temperature} -ge ${min_tem} ]] && [[ ${temperature} -le ${max_tem} ]]
+
+then
+
+echo "Just right!"
+
+fi
+
+#save script (CTRL + O), click ENTER and exit script (CTRL + X)
+
+#Now test Bash script on the terminal with the command:
+
+./temperature.sh
