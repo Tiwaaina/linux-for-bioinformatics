@@ -1,1 +1,1 @@
-#Bioinformatics for Biologists - An introduction to Linux, command line, and Bash
+Bioinformatics for Biologists - An introduction to Linux, command line, and Bash
